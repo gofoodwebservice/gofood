@@ -1,0 +1,38 @@
+/* .hoverRow:hover {
+  font-weight: 900;
+  cursor: pointer;
+}
+
+td:first-child:hover {
+  background-color: inherit;
+  font-weight: inherit;
+} */
+
+/* .hoverRow:hover td:not(:first-child) {
+  font-weight: normal;
+} */
+
+.hoverRow:hover {
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+.hoverRow:hover td:not(.emailCell) {
+    font-weight: 900;
+}
+
+.emailCell {
+    background-color: transparent;
+    font-weight: normal;
+}
+
+.emailCell.noHover:hover {
+    font-weight: normal;
+}
+
+
+.emailCell:hover td:not(:first-child){
+    font-weight: normal;
+}
+

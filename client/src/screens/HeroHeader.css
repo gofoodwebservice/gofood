@@ -1,0 +1,35 @@
+.hero-header {
+    /* background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    font-family: cursive;
+
+}
+
+.hero-header img {
+    animation: imgRotate 50s linear infinite;
+}
+@keyframes imgRotate { 
+    100% { 
+        transform: rotate(360deg); 
+    } 
+}
+
+@media (min-width: 992px) {
+
+.order-table{
+    margin-top: 5rem !important;
+}
+}
+
+@media (max-width: 992px) {
+
+    .order-table{
+        margin-top: 1rem;
+    }
+    }
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, .5);
+}

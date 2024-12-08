@@ -1,0 +1,26 @@
+.nav-hero{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(../img/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.custom-dropdown .menu .item:hover {
+    color: #E4A11B !important;
+    background-color: #0F172B !important; 
+  }
+
+
+/* .carousel-item {
+    height: 35vh; 
+    objectFit: cover;
+    filter: brightness(30%);
+} */
+
+@media screen and (max-width:512px) and (min-width:360px){
+    .carousel-item {
+        height: 33vh; 
+        objectFit: cover;
+        6filter: brightness(40%);
+    }
+}  
