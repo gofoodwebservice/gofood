@@ -77,7 +77,7 @@ router.post("/orderData", async (req, res) => {
       );
 
     // Send email notification
-    await sendEmail(email, name, order_time);
+    // await sendEmail(email, name, order_time);
 
     res.json({ success: true });
   } catch (error) {
@@ -87,46 +87,46 @@ router.post("/orderData", async (req, res) => {
 });
 
 // Function to send email
-const sendEmail = async (email, userName, orderDate) => {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.email,
-      pass: process.env.email_auth, // Consider using environment variables for sensitive data
-    },
-  });
+// const sendEmail = async (email, userName, orderDate) => {
+//   const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: process.env.email,
+//       pass: process.env.email_auth, // Consider using environment variables for sensitive data
+//     },
+//   });
 
-  const templateSource = fs.readFileSync("./Routes/template.html", "utf8");
-  const template = handlebars.compile(templateSource);
+//   const templateSource = fs.readFileSync("./Routes/template.html", "utf8");
+//   const template = handlebars.compile(templateSource);
 
-  const today = new Date();
-  const dateStr =
-    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
-  const timeStr =
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//   const today = new Date();
+//   const dateStr =
+//     today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+//   const timeStr =
+//     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-  const datas = {
-    email,
-    date: dateStr,
-    Time: timeStr,
-    userName,
-  };
+//   const datas = {
+//     email,
+//     date: dateStr,
+//     Time: timeStr,
+//     userName,
+//   };
 
-  const html = template(datas);
+//   const html = template(datas);
 
-  const emailOptions = {
-    from: process.env.email,
-    to: email,
-    subject: "Food Delivery",
-    html,
-  };
+//   const emailOptions = {
+//     from: process.env.email,
+//     to: email,
+//     subject: "Food Delivery",
+//     html,
+//   };
 
-  // try {
-  //   await transporter.sendMail(emailOptions);
-  //   // console.log('Email sent:', emailOptions);
-  // } catch (error) {
-  //   console.error("Error sending email:", error);
-  // }
-};
+//   // try {
+//   //   await transporter.sendMail(emailOptions);
+//   //   // console.log('Email sent:', emailOptions);
+//   // } catch (error) {
+//   //   console.error("Error sending email:", error);
+//   // }
+// };
 
 module.exports = router;
