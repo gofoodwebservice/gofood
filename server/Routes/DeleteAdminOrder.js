@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
     service: 'Gmail', // Use your email service provider
     auth: {
         user: 'gofoodwebservice@gmail.com',
-        pass: wpckfqkoldjladcy,   // Replace with your email app password
+        pass: 'wpckfqkoldjladcy',   // Replace with your email app password
     }
 });
 

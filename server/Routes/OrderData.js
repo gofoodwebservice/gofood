@@ -92,7 +92,7 @@ router.post("/orderData", async (req, res) => {
 //     service: "gmail",
 //     auth: {
 //       user: gofoodwebservice@gmail.com,
-//       pass: wpckfqkoldjladcy, // Consider using environment variables for sensitive data
+//       pass: 'wpckfqkoldjladcy', // Consider using environment variables for sensitive data
 //     },
 //   });
 
