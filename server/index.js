@@ -38,7 +38,7 @@ app.use('/api',require("./Routes/MenuList"));
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!!!!')
+    res.send('Hello World!')
 })
 
 const PORT = process.env.PORT||8000
