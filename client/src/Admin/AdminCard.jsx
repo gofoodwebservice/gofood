@@ -31,7 +31,7 @@ export default function Card(props) {
 
   const confirmDelete = async() => {
     try {
-        const response = await axios.delete("http://localhost:8000/api/deleteitem", {
+        const response = await axios.delete("https://gofood-server-zeta.vercel.app/api/deleteitem", {
           data: { id: props.id }, // Send ID in the request body
           headers: {
             "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export default function Card(props) {
   const confirmOutOfStock = async () => {
     try {
         console.log(props.id)
-        const response = await axios.post("http://localhost:8000/api/outofstock", {
+        const response = await axios.post("https://gofood-server-zeta.vercel.app/api/outofstock", {
           data: { id: props.id }, // Send ID in the request body
           headers: {
             "Content-Type": "application/json",

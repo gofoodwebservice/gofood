@@ -44,7 +44,7 @@ function AdminOrderTable() {
   const loadFoodItems = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/AdminOrderData");
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/AdminOrderData");
       const data = await response.json();
 
       if (response.status === 200) {
@@ -114,7 +114,7 @@ function AdminOrderTable() {
     setDeleteLoader(true);
     // const email = deletionEmail;
     try {
-      const response = await fetch(`http://localhost:8000/api/deleteOrder`, {
+      const response = await fetch(`https://gofood-server-zeta.vercel.app/api/deleteOrder`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -143,7 +143,7 @@ function AdminOrderTable() {
 
   const handleNoted = async (email, innerIndex, outerIndex) => {
     try {
-      const response = await fetch("http://localhost:8000/api/noted", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/noted", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -164,7 +164,7 @@ function AdminOrderTable() {
 
   const handleDelivered = async (email, innerIndex, outerIndex) => {
     try {
-      const response = await fetch("http://localhost:8000/api/delivered", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/delivered", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -189,7 +189,7 @@ function AdminOrderTable() {
   const handleDeleteRequest = async (email, outerIndex, innerIndex, flag) => {
     console.log(outerIndex, innerIndex);
     try {
-      const response = await fetch("http://localhost:8000/api/request", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -236,7 +236,7 @@ function AdminOrderTable() {
     setOrderLoader(true);
     // const email = deletionEmail;
     try {
-      const response = await fetch(`http://localhost:8000/api/approvebill`, {
+      const response = await fetch(`https://gofood-server-zeta.vercel.app/api/approvebill`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

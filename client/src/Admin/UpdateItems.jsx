@@ -42,7 +42,7 @@ const UpdateProductForm = () => {
     };
 
     try {
-        const response = await axios.post("http://localhost:8000/api/updateitem", data, {
+        const response = await axios.post("https://gofood-server-zeta.vercel.app/api/updateitem", data, {
           headers: { "Content-Type": "application/json" },
         });
       
@@ -64,7 +64,7 @@ const UpdateProductForm = () => {
   // Load categories from API
   const loadCategories = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/categories", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/categories", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

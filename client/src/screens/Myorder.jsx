@@ -11,7 +11,7 @@ export default function MyOrder() {
         console.log(localStorage.getItem('email'))
         try{
 
-            await fetch("http://localhost:8000/api/myOrderDatahistory", {
+            await fetch("https://gofood-server-zeta.vercel.app/api/myOrderDatahistory", {
                 // credentials: 'include',
                 // Origin:"http://localhost:3000/login",
                 method: 'POST',

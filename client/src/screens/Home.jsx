@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
@@ -11,9 +11,9 @@ import { Dropdown } from "semantic-ui-react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 
-export default function Home( {table} ) {
-  const { id } = useParams();
-  const navigate = useNavigate();
+export default function Home() {
+  // const { id } = useParams();
+  // const navigate = useNavigate();
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const [search, setSearch] = useState("Full Menu");
@@ -32,7 +32,7 @@ export default function Home( {table} ) {
     setIsLoading(true);
     setIsError(false);
     // try {
-    //   let response = await fetch("http://localhost:8000/api/foodData", {
+    //   let response = await fetch("https://gofood-server-zeta.vercel.app/api/foodData", {
     //     method: "GET",
     //     headers: {
     //       "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function Home( {table} ) {
     // }
 
     try {
-      let response = await fetch("http://localhost:8000/api/menulist", {
+      let response = await fetch("https://gofood-server-zeta.vercel.app/api/menulist", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default function Home( {table} ) {
     setIsLoading(true);
     setIsCategoryError(false);
     try {
-      const response = await fetch("http://localhost:8000/api/categories", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/categories", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -103,19 +103,12 @@ export default function Home( {table} ) {
     })),
   ];
 
-  const handleComments = async () => {
-    if (!sessionStorage.getItem("userName")) {
-      alert("You need to login to post a comment");
-      navigate("/login");
-    } else {
-      navigate("/mycomment");
-    }
-  };
 
-  const handleClose = () => {
-    setShow(false);
-    localStorage.setItem("email", "Guest");
-  }
+
+  // const handleClose = () => {
+  //   setShow(false);
+  //   localStorage.setItem("email", "Guest");
+  // }
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
@@ -141,6 +134,7 @@ export default function Home( {table} ) {
       const timer = setTimeout(() => {
         setShow(true);
       }, 5000);
+      console.log(timer)
     }
     console.log(localStorage.getItem("table"));
   }, []);
@@ -413,7 +407,7 @@ export default function Home( {table} ) {
         <h5 className="text-center text-warning fw-bold">OR</h5>
         <hr />
         <h6 className="text-center mt-3">
-          I don't want order receipt in my inbox.
+          I don&apos;t want order receipt in my inbox.
         </h6>
         <Button
           className="mt-3 text-warning d-block mx-auto mt-2"

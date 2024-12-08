@@ -61,7 +61,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
         order_date: new Date().toDateString(),
       };
 
-      const response = await fetch("http://localhost:8000/api/orderData", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/orderData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
       Coupon: coupon.name,
     };
     axios
-      .post("http://localhost:8000/api/discount", data)
+      .post("https://gofood-server-zeta.vercel.app/api/discount", data)
       .then((res) => {
         const dist = res.data.dis;
         setShow(false);

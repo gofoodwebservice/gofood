@@ -38,7 +38,7 @@ function App() {
     const data = { email, password };
 
     axios
-      .post("http://localhost:8000/api/loginadmin", data)
+      .post("https://gofood-server-zeta.vercel.app/api/loginadmin", data)
       .then((res) => {
         console.log("Login successful:", res.data);
         localStorage.setItem("admin", email);
@@ -78,7 +78,7 @@ function App() {
     clearTimeout(timeoutId); // This should be called after you want to cancel the timeout
 
     axios
-      .post("http://localhost:8000/api/request-otp", { email })
+      .post("https://gofood-server-zeta.vercel.app/api/request-otp", { email })
       .then((res) => {
         setError("");
         setEmailOtp(res.data.otp); // Store OTP for verification
@@ -105,7 +105,7 @@ function App() {
     clearTimeout(timeoutId); // This should be called after you want to cancel the timeout
 
     axios
-      .post("http://localhost:8000/api/request-otp", { email })
+      .post("https://gofood-server-zeta.vercel.app/api/request-otp", { email })
       .then((res) => {
         setError("");
         setEmailOtp(res.data.otp); // Store OTP for verification
@@ -139,7 +139,7 @@ function App() {
     }
 
     axios
-      .post("http://localhost:8000/api/reset-password", {
+      .post("https://gofood-server-zeta.vercel.app/api/reset-password", {
         email,
         newPassword,
       })

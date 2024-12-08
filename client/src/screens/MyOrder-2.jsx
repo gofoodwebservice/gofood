@@ -53,7 +53,7 @@ function OrderTable() {
   const loadFoodItems = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/api/AdminOrderData");
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/AdminOrderData");
       const data = await response.json();
 
       if (response.status === 200) {
@@ -118,7 +118,7 @@ function OrderTable() {
   const confirmDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/requestDeleteOrder`,
+        `https://gofood-server-zeta.vercel.app/api/requestDeleteOrder`,
         {
           method: "DELETE",
           headers: {
@@ -242,7 +242,7 @@ function OrderTable() {
 
   const confirmBill = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/askforbill", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/askforbill", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

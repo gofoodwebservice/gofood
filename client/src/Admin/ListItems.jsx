@@ -29,7 +29,7 @@ export default function ListItems() {
 
   const loadFoodItems = async () => {
     // try {
-    //   let response = await fetch("http://localhost:8000/api/foodData", {
+    //   let response = await fetch("https://gofood-server-zeta.vercel.app/api/foodData", {
     //     method: "GET",
     //     headers: {
     //       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export default function ListItems() {
     // }
 
     try {
-      let response = await fetch("http://localhost:8000/api/menulist", {
+      let response = await fetch("https://gofood-server-zeta.vercel.app/api/menulist", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default function ListItems() {
 
   const loadCategories = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/categories", {
+      const response = await fetch("https://gofood-server-zeta.vercel.app/api/categories", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
