@@ -91,8 +91,8 @@ router.post("/orderData", async (req, res) => {
 //   const transporter = nodemailer.createTransport({
 //     service: "gmail",
 //     auth: {
-//       user: process.env.email,
-//       pass: process.env.email_auth, // Consider using environment variables for sensitive data
+//       user: gofoodwebservice@gmail.com,
+//       pass: wpckfqkoldjladcy, // Consider using environment variables for sensitive data
 //     },
 //   });
 
@@ -115,7 +115,7 @@ router.post("/orderData", async (req, res) => {
 //   const html = template(datas);
 
 //   const emailOptions = {
-//     from: process.env.email,
+//     from: gofoodwebservice@gmail.com,
 //     to: email,
 //     subject: "Food Delivery",
 //     html,

@@ -9,8 +9,8 @@ require('dotenv').config(); // Import and configure dotenv
 const transporter = nodemailer.createTransport({
     service: 'Gmail', // Use your email service provider
     auth: {
-        user: process.env.email,
-        pass: process.env.email_auth,   // Replace with your email app password
+        user: 'gofoodwebservice@gmail.com',
+        pass: wpckfqkoldjladcy,   // Replace with your email app password
     }
 });
 
@@ -473,7 +473,7 @@ router.post('/approvebill', async (req, res) => {
         
         // Send email
         const mailOptions = {
-            from: process.env.email, // Replace with your email
+            from: 'gofoodwebservice@gmail.com', // Replace with your email
             to: email,
             subject: 'Your Order Bill',
             html: billHtml

@@ -8,8 +8,8 @@ require('dotenv').config(); // Import and configure dotenv
 const transporter = nodemailer.createTransport({
     service: 'Gmail', // Use your email service provider
     auth: {
-        user: process.env.email,
-        pass: process.env.email_auth,   // Replace with your email app password
+        user: 'gofoodwebservice@gmail.com',
+        pass: wpckfqkoldjladcy,   // Replace with your email app password
     }
 });
 
