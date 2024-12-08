@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatchCart, useCart } from "../components/ContextReducer";
 import "./AdminOrder.css";
-import OutdoorGrillSharpIcon from "@mui/icons-material/OutdoorGrillSharp";
-import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
-import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
-import DoneAllRoundedIcon from "@mui/icons-material/DoneAllRounded";
+// import OutdoorGrillSharpIcon from "@mui/icons-material/OutdoorGrillSharp";
+// import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+// import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
+// import DoneAllRoundedIcon from "@mui/icons-material/DoneAllRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
-import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
-import ButtonGroup from "@mui/material/ButtonGroup";
+// import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
+// import ButtonGroup from "@mui/material/ButtonGroup";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Navbar from "../components/Navbar";
@@ -48,7 +48,7 @@ function OrderTable() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorLoading, setErrorLoading] = useState(false);
   const invoiceRef = useRef();
-  const [receiptDownload, setRecieptDownload] = useState(false);
+  // const [receiptDownload, setRecieptDownload] = useState(false);
 
   const loadFoodItems = async () => {
     setIsLoading(true);
@@ -71,7 +71,7 @@ function OrderTable() {
         );
 
         console.log(localStorage.getItem("email"));
-        console.log(filteredOrder[0].billApproved);
+        // console.log(filteredOrder[0].billApproved);
         setOrderData(filteredOrder);
         const count = data.orderData.reduce(
           (total, order) => total + order.order_data.length,
@@ -852,8 +852,8 @@ const handleDownload = () => {
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
         >
           <Alert onClose={handleCloseMessageSnackBar} severity="success">
-            Request sent. If accepted, the order status will change to 'Order
-            Cancelled'.
+            Request sent. If accepted, the order status will change to &apos;Order
+            Cancelled&apos;.
           </Alert>
         </Snackbar>
 
