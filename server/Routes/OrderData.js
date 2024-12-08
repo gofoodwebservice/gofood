@@ -79,7 +79,7 @@ router.post("/orderData", async (req, res) => {
     // Send email notification
     // await sendEmail(email, name, order_time);
 
-    res.json({ success: true });
+    res.status(200).json({ success: true });
   } catch (error) {
     console.error("Server Error:", error.message);
     res.status(400).send("Server Error: " + error.message);
