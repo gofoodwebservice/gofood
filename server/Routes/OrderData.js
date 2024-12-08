@@ -47,12 +47,15 @@ router.post("/orderData", async (req, res) => {
       order.isDeleted = false;
     });
     // If the user doesn't exist in AdminOrder, create a new entry
-    // if (!adminOrder) {
-    //   await AdminOrder.create({
-    //     email,
-    //     askedForBill: false,
-    //     order_data: [order_data],
-    //   });
+    if (!adminOrder) {
+      await AdminOrder.create({
+        email,
+        table,
+        billApproved: false,
+        askedForBill: false,
+        order_data: [order_data],
+      });
+    }
     // } else {
     //   // If the user exists, update the existing admin order data
     //   await AdminOrder.findOneAndUpdate(
