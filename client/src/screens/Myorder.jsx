@@ -106,7 +106,7 @@ export default function MyOrder() {
               <div className="mt-5 mb-5 text-center fs-3 text-white">
                 <h1>Nothing ordered yet.</h1>
                 <button
-                  className="btn bg-success mt-5 mx-1 fs-5"
+                  className="btn btn-warning text-dark mt-5 mx-1 fs-5"
                   onClick={orderNow}
                 >
                   Order Now
