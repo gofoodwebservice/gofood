@@ -34,7 +34,7 @@ const salesTax = 10;
                          ${item.name} (${item.qty})
                     </td>
                     <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;">
-                        ${itemTotal % item.qty} * ${item.qty}
+                        ${itemTotal / item.qty} * ${item.qty}
                     </td>
                     <td bgcolor="#FFFFFF" align="right" style="color:#5a5a5a;padding:10px 40px 10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-weight:bold;font-size:14px;-webkit-font-smoothing:antialiased;line-height:1.4;">
                          $${itemTotal.toFixed(2)}
@@ -234,11 +234,11 @@ const salesTax = 10;
     <!--Main Parent Table -->
     <table width="100%" border="0" cellpadding="0" direction="ltr" bgcolor="#f1f1f1" cellspacing="0" role="presentation" style="width: 640px; min-width: 640px; margin:0 auto 0 auto;">
     <tbody>
-    <tr>
-        <td style="display:none;font-size:0;line-height:0;color:#111111;">
-             Sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-        </td>
-    </tr>
+    // <tr>
+    //     <td style="display:none;font-size:0;line-height:0;color:#111111;">
+    //          Sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+    //     </td>
+    // </tr>
     <tr>
         <td>
             <!--Content Starts Here -->

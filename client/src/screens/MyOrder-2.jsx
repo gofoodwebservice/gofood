@@ -296,7 +296,7 @@ function OrderTable() {
                         ${item.name} (${item.qty})
                     </td>
                     <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;">
-                        ${itemTotal % item.qty} * ${item.qty}
+                        ${itemTotal / item.qty} * ${item.qty}
                     </td>
                     <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;text-align:right;">
                         $${itemTotal.toFixed(2)}
@@ -377,6 +377,7 @@ function OrderTable() {
                             <th>#</th>
                             <th>Item</th>
                             <th>Price</th>
+                            <th>Net Price</th>
                         </tr>
                     </thead>
                     <tbody>
