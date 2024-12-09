@@ -29,9 +29,9 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
     return `${hours}:${minutes}:${seconds}`;
   }
 
-  const handleCartToHome = () => {
-    onClose();
-  }
+  // const handleCartToHome = () => {
+  //   onClose();
+  // }
 
   const handleCheckOut = async () => {
     setOrderLoader(true);
@@ -103,7 +103,6 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
     className="btn btn-warning text-dark fw-bold mt-4 d-flex justify-content-center" 
     to="/"
     state={{ menuFlag: true }}
-    onClick={handleCartToHome}
   >
     Order Something Now
   </Link>
