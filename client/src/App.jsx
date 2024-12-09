@@ -54,6 +54,7 @@ function AppRoutes({ setTable, table }) {
       <Route exact path='/myorders' element={<MyOrder />} />
       <Route exact path='/adminOrder' element={<AdminOrder />} />
       <Route exact path='/myOrder' element={<MyOrder2 />} />
+      <Route exact path='/history' element={<MyOrder />} />
       <Route exact path='/admin' element={<Admin />} />
       <Route exact path='/list' element={<ListItems />} />
       <Route exact path='/update' element={<UpdateItems />} />
