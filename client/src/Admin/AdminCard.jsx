@@ -137,7 +137,7 @@ export default function Card(props) {
                 onClick={handleOutOfStock}
               >
                 
-               {!props.isStockAvailable ? 
+               {props.isStockAvailable ? 
                 "Out of Stock" : "Live the item"
             }
               </button>

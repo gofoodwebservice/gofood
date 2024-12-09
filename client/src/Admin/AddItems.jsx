@@ -148,7 +148,7 @@ const AddProductForm = () => {
                 <form onSubmit={handleSubmit}>
                   {/* Name Input */}
                   <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
+                    <label htmlFor="name" className="form-label text-dark">
                       Name of Item
                     </label>
                     <input
@@ -165,7 +165,7 @@ const AddProductForm = () => {
 
                   {/* Price Input */}
                   <div className="mb-3">
-                    <label htmlFor="price" className="form-label">
+                    <label htmlFor="price" className="form-label text-dark">
                       Price of Item
                     </label>
                     <input
@@ -182,7 +182,7 @@ const AddProductForm = () => {
 
                   {/* Image URL Input */}
                   <div className="mb-3">
-                    <label htmlFor="imageUrl" className="form-label">
+                    <label htmlFor="imageUrl" className="form-label text-dark">
                       Image URL
                     </label>
                     <input
@@ -200,7 +200,7 @@ const AddProductForm = () => {
                   {/* Categories Dropdown */}
 <div className="mb-3 d-flex align-items-center">
   <div style={{ flex: "1" }}>
-    <label htmlFor="category" className="form-label">
+    <label htmlFor="category" className="form-label text-dark">
       Category
     </label>
     <select
@@ -243,7 +243,7 @@ const AddProductForm = () => {
 
                   {/* Description Input */}
                   <div className="mb-3">
-                    <label htmlFor="description" className="form-label">
+                    <label htmlFor="description" className="form-label text-dark">
                       Description
                     </label>
                     <textarea
