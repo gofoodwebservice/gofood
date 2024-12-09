@@ -157,7 +157,7 @@ const AddProductForm = () => {
                       name="name"
                       value={product.name}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter item name"
                       required
                     />
@@ -174,7 +174,7 @@ const AddProductForm = () => {
                       name="price"
                       value={product.price}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter price"
                       required
                     />
@@ -191,7 +191,7 @@ const AddProductForm = () => {
                       name="imageUrl"
                       value={product.imageUrl}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter image URL"
                       required
                     />
@@ -208,7 +208,7 @@ const AddProductForm = () => {
       name="category"
       value={product.category}
       onChange={handleChange}
-      className="form-control bg-white"
+      className="form-control bg-white text-dark"
       required
     >
       <option value="">Select a category</option>
@@ -251,7 +251,7 @@ const AddProductForm = () => {
                       name="description"
                       value={product.description}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter item description"
                       rows="3"
                       required

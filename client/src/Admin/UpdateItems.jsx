@@ -109,7 +109,7 @@ const UpdateProductForm = () => {
                 <form onSubmit={handleSubmit}>
                   {/* Name Input */}
                   <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
+                    <label htmlFor="name" className="form-label text-dark">
                       Name of Item
                     </label>
                     <input
@@ -118,7 +118,7 @@ const UpdateProductForm = () => {
                       name="name"
                       value={product.name}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter item name"
                       required
                     />
@@ -126,7 +126,7 @@ const UpdateProductForm = () => {
 
                   {/* Price Input */}
                   <div className="mb-3">
-                    <label htmlFor="price" className="form-label">
+                    <label htmlFor="price" className="form-label text-dark">
                       Price of Item
                     </label>
                     <input
@@ -135,7 +135,7 @@ const UpdateProductForm = () => {
                       name="price"
                       value={product.price}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter price"
                       required
                     />
@@ -143,7 +143,7 @@ const UpdateProductForm = () => {
 
                   {/* Image URL Input */}
                   <div className="mb-3">
-                    <label htmlFor="imageUrl" className="form-label">
+                    <label htmlFor="imageUrl" className="form-label text-dark">
                       Image URL
                     </label>
                     <input
@@ -152,7 +152,7 @@ const UpdateProductForm = () => {
                       name="imageUrl"
                       value={product.imageUrl}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter image URL"
                       required
                     />
@@ -160,7 +160,7 @@ const UpdateProductForm = () => {
 
                   {/* Categories Dropdown */}
                   <div className="mb-3">
-                    <label htmlFor="category" className="form-label">
+                    <label htmlFor="category" className="form-label text-dark">
                       Category
                     </label>
                     <select
@@ -168,7 +168,7 @@ const UpdateProductForm = () => {
                       name="category"
                       value={product.category}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       required
                     >
                       <option value={product.category}>{product.category}</option>
@@ -182,7 +182,7 @@ const UpdateProductForm = () => {
 
                   {/* Description Input */}
                   <div className="mb-3">
-                    <label htmlFor="description" className="form-label">
+                    <label htmlFor="description" className="form-label text-dark">
                       Description
                     </label>
                     <textarea
@@ -190,7 +190,7 @@ const UpdateProductForm = () => {
                       name="description"
                       value={product.description}
                       onChange={handleChange}
-                      className="form-control bg-white"
+                      className="form-control bg-white text-dark"
                       placeholder="Enter item description"
                       rows="3"
                       required
