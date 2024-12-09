@@ -66,11 +66,14 @@ router.post("/orderData", async (req, res) => {
     //     }
     //   );
     // }
+    else{
 
-    await AdminOrder.findOneAndUpdate(
-        { email }, {table},
+      
+      await AdminOrder.findOneAndUpdate(
+        { email },
         {
           $set: {
+            table: table,
             billApproved: false,
             askedForBill: false,
           },
@@ -78,6 +81,7 @@ router.post("/orderData", async (req, res) => {
         },
         { upsert: true }
       );
+    }
 
     // Send email notification
     // await sendEmail(email, name, order_time);
