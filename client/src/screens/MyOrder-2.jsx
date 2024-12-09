@@ -383,11 +383,11 @@ function OrderTable() {
                     <tbody>
                         ${itemRows}
                         <tr>
-                            <td colspan="2" align="right">Taxes</td>
+                            <td colspan="3" align="right">Taxes</td>
                             <td>$${salesTax.toFixed(2)}</td>
                         </tr>
                         <tr>
-                            <td colspan="2" align="right" style="font-weight:bold;">TOTAL</td>
+                            <td colspan="3" align="right" style="font-weight:bold;">TOTAL</td>
                             <td style="font-weight:bold;">$${totalCost.toFixed(
                               2
                             )}</td>
