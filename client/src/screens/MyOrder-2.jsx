@@ -21,7 +21,7 @@ import ViewMore from "./ViewMore";
 import "./HeroHeader.css";
 import { MagnifyingGlass, Radio } from "react-loader-spinner";
 import { Button } from "react-bootstrap";
-import html2pdf from 'html2pdf.js';
+import html2pdf from "html2pdf.js";
 
 function OrderTable() {
   let data = useCart();
@@ -53,7 +53,9 @@ function OrderTable() {
   const loadFoodItems = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://gofood-server-zeta.vercel.app/api/AdminOrderData");
+      const response = await fetch(
+        "https://gofood-server-zeta.vercel.app/api/AdminOrderData"
+      );
       const data = await response.json();
 
       if (response.status === 200) {
@@ -242,13 +244,16 @@ function OrderTable() {
 
   const confirmBill = async () => {
     try {
-      const response = await fetch("https://gofood-server-zeta.vercel.app/api/askforbill", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      const response = await fetch(
+        "https://gofood-server-zeta.vercel.app/api/askforbill",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
       if (response.status === 200) {
         setBillConfirmation(true);
       } else if (response.status === 404) {
@@ -272,23 +277,26 @@ function OrderTable() {
   const handleCloseBillError = () => setBillError(false);
 
   const generateBillHtml = (orders) => {
-    let itemRows = '';
+    let itemRows = "";
     let totalCost = 0;
     const salesTax = 10;
     let seq = 0;
 
     // Generate table rows dynamically
     console.log(orders);
-    orders.forEach(orderGroup => {
-        orderGroup.slice(1).forEach(item => {
-            const itemTotal = item.price * item.qty;
-            totalCost += itemTotal;
-            seq = seq + 1;
-            itemRows += `
+    orders.forEach((orderGroup) => {
+      orderGroup.slice(1).forEach((item) => {
+        const itemTotal = item.price;
+        totalCost += itemTotal;
+        seq = seq + 1;
+        itemRows += `
                 <tr>
                     <td style="padding:10px;">${seq}.</td>
                     <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;">
                         ${item.name} (${item.qty})
+                    </td>
+                    <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;">
+                        ${itemTotal % item.qty} * ${item.qty}
                     </td>
                     <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;text-align:right;">
                         $${itemTotal.toFixed(2)}
@@ -296,7 +304,7 @@ function OrderTable() {
                     <td style="padding:10px;"></td>
                 </tr>
             `;
-        });
+      });
     });
 
     totalCost += salesTax;
@@ -379,7 +387,9 @@ function OrderTable() {
                         </tr>
                         <tr>
                             <td colspan="2" align="right" style="font-weight:bold;">TOTAL</td>
-                            <td style="font-weight:bold;">$${totalCost.toFixed(2)}</td>
+                            <td style="font-weight:bold;">$${totalCost.toFixed(
+                              2
+                            )}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -389,32 +399,34 @@ function OrderTable() {
     </body>
     </html>
     `;
-};
-
-const handleDownload = () => {
-  const filteredData = orderData[0].order_data.map(subArray => 
-    subArray.filter(item => !item.isDeleted)
-  );
-    const invoiceHtml = generateBillHtml(filteredData);
-
-  const element = document.createElement('div');
-  element.innerHTML = invoiceHtml;
-  document.body.appendChild(element); // Add to the DOM temporarily
-
-  // Use html2pdf.js to generate the PDF
-  const options = {
-      margin: 1,
-      filename: 'invoice.pdf',
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
   };
 
-  html2pdf().set(options).from(element).save().finally(() => {
-      document.body.removeChild(element); // Clean up after generating the PDF
-  });
-};
+  const handleDownload = () => {
+    const filteredData = orderData[0].order_data.map((subArray) =>
+      subArray.filter((item) => !item.isDeleted)
+    );
+    const invoiceHtml = generateBillHtml(filteredData);
 
+    const element = document.createElement("div");
+    element.innerHTML = invoiceHtml;
+    document.body.appendChild(element); // Add to the DOM temporarily
 
+    // Use html2pdf.js to generate the PDF
+    const options = {
+      margin: 1,
+      filename: "invoice.pdf",
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+
+    html2pdf()
+      .set(options)
+      .from(element)
+      .save()
+      .finally(() => {
+        document.body.removeChild(element); // Clean up after generating the PDF
+      });
+  };
 
   return (
     <div
@@ -730,26 +742,35 @@ const handleDownload = () => {
             </tbody>
           </table>
           <div className="text-center">
-            <Link className="btn btn-warning text-dark fw-bold mt-4" to="/" 
-                state={{ menuFlag: true }}>
+            <Link
+              className="btn btn-warning text-dark fw-bold mt-4"
+              to="/"
+              state={{ menuFlag: true }}
+            >
               {" "}
               Order Now
             </Link>
-                {
+            {orderData.length > 0 && (
+              <Button
+                className="btn btn-warning text-dark fw-bold mt-4 ms-2"
+                onClick={
                   orderData.length > 0 &&
-            <Button className="btn btn-warning text-dark fw-bold mt-4 ms-2" 
-            onClick={orderData.length > 0 && orderData[0].billApproved && handleDownload }
-            style={orderData.length > 0 && !orderData[0].billApproved
-              ? {
-                cursor: "not-allowed",
-                opacity: "0.6",
-              }
-              : {}}
+                  orderData[0].billApproved &&
+                  handleDownload
+                }
+                style={
+                  orderData.length > 0 && !orderData[0].billApproved
+                    ? {
+                        cursor: "not-allowed",
+                        opacity: "0.6",
+                      }
+                    : {}
+                }
               >
-              {" "}
-              Download Receipt
-            </Button>
-        }
+                {" "}
+                Download Receipt
+              </Button>
+            )}
           </div>
           {}
         </div>
@@ -853,8 +874,8 @@ const handleDownload = () => {
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
         >
           <Alert onClose={handleCloseMessageSnackBar} severity="success">
-            Request sent. If accepted, the order status will change to &apos;Order
-            Cancelled&apos;.
+            Request sent. If accepted, the order status will change to
+            &apos;Order Cancelled&apos;.
           </Alert>
         </Snackbar>
 
@@ -944,9 +965,7 @@ const handleDownload = () => {
         </Alert>
       </Snackbar>
 
-      <div ref={invoiceRef} style={{  backgroundColor: '#f1f1f1' }}>
-          
-      </div>
+      <div ref={invoiceRef} style={{ backgroundColor: "#f1f1f1" }}></div>
     </div>
   );
 }

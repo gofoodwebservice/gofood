@@ -24,7 +24,7 @@ const salesTax = 10;
     orders.forEach(orderGroup => {
         // Skip the first item in the group as it's metadata, not an order item
         orderGroup.slice(1).forEach(item => {
-            const itemTotal = item.price * item.qty;
+            const itemTotal = item.price;
             totalCost += itemTotal;
             itemRows += `
                 <tr>
@@ -32,6 +32,9 @@ const salesTax = 10;
                     </td>
                     <td bgcolor="#FFFFFF" align="left" style="color:#5a5a5a;padding:10px 40px 10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-weight:normal;font-size:14px;-webkit-font-smoothing:antialiased;line-height:1.4;">
                          ${item.name} (${item.qty})
+                    </td>
+                    <td style="padding:10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-size:14px;">
+                        ${itemTotal % item.qty} * ${item.qty}
                     </td>
                     <td bgcolor="#FFFFFF" align="right" style="color:#5a5a5a;padding:10px 40px 10px 40px;font-family: 'Lato', Arial, Helvetica, sans-serif;font-weight:bold;font-size:14px;-webkit-font-smoothing:antialiased;line-height:1.4;">
                          $${itemTotal.toFixed(2)}
