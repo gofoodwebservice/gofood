@@ -14,7 +14,7 @@ const HeroHeader = ({menuFlag, setMenuFlag}) => {
         <div className="row align-items-center g-5">
           <div className="col-lg-6 text-center text-lg-start">
             <h1 className="display-3 text-white animated slideInLeft">
-              Enjoy Our
+              Enjoy Your
               <br />
               Delicious Meal
             </h1>

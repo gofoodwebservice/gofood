@@ -160,7 +160,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
               <th scope="col">Name</th>
               <th scope="col">Quantity</th>
               <th scope="col">Amount</th>
-              <th scope="col">Description</th>
+              <th scope="col">Instructions</th>
               <th scope="col"></th>
             </tr>
           </thead>

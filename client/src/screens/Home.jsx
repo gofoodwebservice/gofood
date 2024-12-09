@@ -384,7 +384,7 @@ export default function Home() {
         }}
         className="text-warning"
       >
-        Please provide your email address to receive your receipt directly in your inbox after enjoying your meal.
+        Please provide your email address to have the receipt delivered straight to your inbox.
         <Form onSubmit={handleSubmit} className="mt-4">
           <Form.Group controlId="formEmail">
             <Form.Label>Email address</Form.Label>

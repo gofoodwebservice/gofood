@@ -9,7 +9,7 @@ const ViewMore = ({initialDescription}) => {
     
     <div className="text-warning fw-bold">
      {
-      initialDescription === "" ? <p className='text-center'>No description given</p> :
+      initialDescription === "" ? <p className='text-center'>No instructions given</p> :
 
       <p className=''>{initialDescription}</p>
      } 
