@@ -176,6 +176,7 @@ export default function Card(props) {
                   borderRadius: "6px",
                 //   backgroundColor: "#4CAF50", // Green color for update
                   color: "#0F172B",
+                  textDecoration: "none"
                 }}
                 
               >
