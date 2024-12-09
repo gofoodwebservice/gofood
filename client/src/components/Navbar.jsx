@@ -94,7 +94,7 @@ export default function NavbarComponent() {
 
             {localStorage.getItem("email") &&
               localStorage.getItem("email") !== "Guest" && (
-                <Nav.Link as={Link} to="/my" className="nav-link fs-5">
+                <Nav.Link as={Link} to="/history" className="nav-link fs-5">
                   My Order History
                 </Nav.Link>
               )}
