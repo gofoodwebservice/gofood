@@ -102,6 +102,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
   <Link 
     className="btn btn-warning text-dark fw-bold mt-4 d-flex justify-content-center" 
     to="/"
+    state={{ menuFlag: true }}
     onClick={handleCartToHome}
   >
     Order Something Now

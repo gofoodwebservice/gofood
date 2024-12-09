@@ -37,8 +37,8 @@ export default function Card(props) {
         await dispatch({
           type: "UPDATE",
           id: props.item._id,
-          price: finalPrice,
-          qty: qty,
+          price: parseInt(finalPrice),
+          qty: parseInt(qty),
           description: description,
         });
       } else {
@@ -46,8 +46,8 @@ export default function Card(props) {
           type: "ADD",
           id: props.item._id,
           name: props.item.name,
-          price: finalPrice,
-          qty: qty,
+          price: parseInt(finalPrice),
+          qty: parseInt(qty),
           size: size,
           img: props.ImgSrc,
           description: description,
@@ -175,7 +175,7 @@ export default function Card(props) {
               borderRadius: "8px",
             }}
           >
-            View Dish Description
+            View Description
           </button>
           <div className="mt-2">
             <p
