@@ -79,7 +79,7 @@ const Menu = () => {
                                       .map(filterItems => {
                                           return (
                                               <div key={filterItems._id} className='col-12 col-md-6 col-lg-4 text-center'>
-                                                  <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
+                                                  <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} price={filterItems.price} ></Card>
                                               </div>
                                           )
                                         }) : <div className='text-white'> No Such Data </div>}

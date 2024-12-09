@@ -79,7 +79,7 @@ export default function Card(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const finalPrice = 100 * qty;
+  const finalPrice = props.price * qty;
 
   return (
     <div
