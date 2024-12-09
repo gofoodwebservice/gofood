@@ -730,7 +730,8 @@ const handleDownload = () => {
             </tbody>
           </table>
           <div className="text-center">
-            <Link className="btn btn-warning text-dark fw-bold mt-4" to="/">
+            <Link className="btn btn-warning text-dark fw-bold mt-4" to="/" 
+                state={{ menuFlag: true }}>
               {" "}
               Order Now
             </Link>

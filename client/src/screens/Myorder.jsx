@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function MyOrder() {
     const navigate = useNavigate();
@@ -105,12 +105,13 @@ export default function MyOrder() {
             ) : (
               <div className="mt-5 mb-5 text-center fs-3 text-white">
                 <h1>Nothing ordered yet.</h1>
-                <button
+                <Link
                   className="btn btn-warning text-dark mt-5 mx-1 fs-5"
-                  onClick={orderNow}
+                  to="/"
+                  state={{ menuFlag: true }}
                 >
                   Order Now
-                </button>
+                </Link>
               </div>
             )}
           </div>
