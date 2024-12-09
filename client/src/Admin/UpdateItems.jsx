@@ -90,7 +90,7 @@ const UpdateProductForm = () => {
   }, []);
 
   return (
-    <div className="d-flex vh-100 bg-light nav-hero">
+    <div className="d-flex bg-light nav-hero">
       <div className="container my-auto">
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-6">
