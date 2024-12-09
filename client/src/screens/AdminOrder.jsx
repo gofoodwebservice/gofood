@@ -404,7 +404,7 @@ function AdminOrderTable() {
                                 <div>
                                   <h6>Table No: {order.table ? order.table : ""}</h6> 
                                   <br/>
-                                  {order.email}
+                                  {order.email.startsWith("Guest") ? "Guest" : order.email}
                                   {/* {order.askedForBill} */}
                                   <br />
                                   <DeleteRoundedIcon

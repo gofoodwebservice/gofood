@@ -118,8 +118,14 @@ export default function Home() {
     setShow(false);
   };
 
+  function generateRandomString(length) {
+    return Math.random().toString(36).substring(2, 2 + length);
+}
+
   const handleAsGuest = () => {
-    localStorage.setItem("email", "Guest");
+    const random = "Guest" + generateRandomString(10);
+    localStorage.setItem("email", random );
+    console.log(random)
     setError("");
     setShow(false);
   }
