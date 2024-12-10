@@ -439,7 +439,7 @@ function OrderTable() {
       </div>
       <div className="content" style={{ flex: "1" }}>
         <div className="container-fluid table-responsive table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xs table-sm">
-          <h2 className="mb-3 order-table" style={{ textAlign: "center" }}>
+          <h2 className="mb-3 order-table text-warning" style={{ textAlign: "center" }}>
             Order Table
           </h2>
 
@@ -476,7 +476,7 @@ function OrderTable() {
                 <th>Cancellation Request</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-warning">
               {orderData.length > 0 ? (
                 orderData.map((order, orderIndex) => {
                   const totalPrice = calculateTotalPrice(order.order_data);
