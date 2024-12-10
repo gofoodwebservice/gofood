@@ -124,12 +124,12 @@ export default function NavbarComponent() {
                 className="btn bg-warning text-dark d-flex"
                 onClick={loadCart}
               >
-                <NavLink
+                <div
                   className="me-2 text-dark"
                   style={{ fontWeight: "bold", textDecoration: "none" }}
                 >
                   My Cart
-                </NavLink>
+                </div>
                 <Badge
                   className="bg-success d-flex"
                   style={{ marginTop: "0.2rem" }}
