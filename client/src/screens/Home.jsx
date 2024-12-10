@@ -147,6 +147,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuFlag(location.state?.menuFlag || false);
   }, [location.state]);
 

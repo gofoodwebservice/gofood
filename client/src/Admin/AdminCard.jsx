@@ -27,7 +27,7 @@ export default function Card(props) {
   const [outOfStockError, setOutOfStockError] = useState(false);
 
 
-  let finalPrice = 100;
+  // let finalPrice = 100;
 
   const confirmDelete = async() => {
     try {
@@ -164,7 +164,7 @@ export default function Card(props) {
                 state={{
                     img: props.ImgSrc,
                     name: props.foodName,
-                    price: finalPrice || 0,
+                    price: props.price || 0,
                     description: props.description,
                     imageUrl: props.ImgSrc,
                     category: props.CategoryName,
