@@ -8,7 +8,7 @@ import ViewMoreModal from "../ViewMoreModal";
 import ViewMore from "./ViewMore";
 import LoaderModal from "../LoaderModal";
 import { ThreeDots } from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
   let data = useCart();
@@ -19,6 +19,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
   const [viewMore, setViewMore] = useState(false);
   const [modalDescription, setModalDescription] = useState("");
   const [orderLoader, setOrderLoader] = useState(false);
+  const Navigate = useNavigate();
 
   function getCurrentTime() {
     const now = new Date();
@@ -29,9 +30,10 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
     return `${hours}:${minutes}:${seconds}`;
   }
 
-  // const handleCartToHome = () => {
-  //   onClose();
-  // }
+  const handleCartToHome = () => {
+    onClose();
+    Navigate("/", {state: {menuFlag: true}})
+  }
 
   const handleCheckOut = async () => {
     setOrderLoader(true);
@@ -99,13 +101,13 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
           The Cart is Empty!
         </div>
         <div className="d-flex justify-content-center align-items-center mt-2">
-  <Link 
+  <button
     className="btn btn-warning text-dark fw-bold mt-4 d-flex justify-content-center" 
-    to="/"
-    state={{ menuFlag: true }}
+    onClick={handleCartToHome}
+    
   >
     Order Something Now
-  </Link>
+  </button>
 </div>
       </div>
     );

@@ -7,12 +7,16 @@ import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
 import "./Navbar.css"; // Assuming this is where the CSS is located
 import logo from "../img/image.png";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import { NavLink } from "react-router-dom";
 
 export default function NavbarComponent() {
   const navigate = useNavigate();
   const [cartView, setCartView] = useState(false);
   const data = useCart();
+  const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderError, setOrderError] = useState(false);
 
   const handleLogout = () => {
     navigate("/login");
@@ -124,9 +128,38 @@ export default function NavbarComponent() {
               </div>
               {cartView && (
                 <Modal onClose={() => setCartView(false)}>
-                  <Cart />
+                  <Cart  onClose={() => setCartView(false)}
+            orderConfirmation={() => setOrderSuccess(true)}
+            orderErrorFn={() => setOrderError(true)}/>
                 </Modal>
               )}
+               <Snackbar
+        open={orderSuccess}
+        autoHideDuration={6000}
+        onClose={() => setOrderSuccess(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
+        <Alert onClose={() => setOrderSuccess(false)} severity="success">
+          <p>
+            Your order is successfully noted. Hold on tight while we prepare it
+            for you.
+          </p>
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={orderError}
+        autoHideDuration={6000}
+        onClose={() => setOrderError(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      >
+        <Alert onClose={() => setOrderError(false)} severity="error">
+          <p>
+            Some Error occurred while noting your order. Please try again. If
+            problem persists, please contact your nearest staff.
+          </p>
+        </Alert>
+      </Snackbar>
               {/* <div className="btn bg-white text-danger mx-2" style={{fontWeight:"bold"}} onClick={handleLogout}>Logout</div> */}
             </div>
           )}
