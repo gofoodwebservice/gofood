@@ -305,7 +305,7 @@ export default function Home() {
                       ) : !isCategoryError ? (
                         <div className="text-warning fw-bold text-center mt-5 m-auto justify-content-center align-items-center">
                           {" "}
-                          Nothing here right now. Please come back later.{" "}
+                          Could not load the Menu. Please refresh...{" "}
                         </div>
                       ) : (
                         <div className="d-flex flex-column justify-content-center align-items-center vh-50">
@@ -350,8 +350,8 @@ export default function Home() {
               ) : !isError ? (
                 <div className="text-warning fw-bold text-center mt-5 m-auto justify-content-center align-items-center">
                   {" "}
-                  Nothing here right now. Please come back later.{" "}
-                </div>
+                  Could not load the Menu. Please refresh...{" "}
+                  </div>
               ) : (
                 <div className="d-flex flex-column justify-content-center align-items-center vh-50">
                   <div className="mt-5">
