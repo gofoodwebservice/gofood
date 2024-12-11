@@ -749,7 +749,9 @@ function OrderTable() {
               state={{ menuFlag: true }}
             >
               {" "}
-              Order Now
+              {orderData.length === 0 ?
+              "Order Now" : "Order More"
+            }
             </Link>
             {orderData.length > 0 && (
               <Button
