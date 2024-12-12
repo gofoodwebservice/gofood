@@ -8,10 +8,10 @@ const CategorySchema = new Schema({
         type: String,
         required: true,
     },
-    // Sequence:{
-    //     type: Int32,
-    //     required: true
-    // }
+    Sequence:{
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('category_item', CategorySchema)

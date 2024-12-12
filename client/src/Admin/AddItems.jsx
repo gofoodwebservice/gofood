@@ -109,7 +109,7 @@ const AddProductForm = () => {
       const response = await fetch("https://gofood-server-zeta.vercel.app/api/addcategory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category, sequence: seqTag }),
+        body: JSON.stringify({ category }),
       });
        // Assume the response is an array of category objects
     } catch (error) {

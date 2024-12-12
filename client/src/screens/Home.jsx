@@ -25,7 +25,7 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [expandedCategory, setExpandedCategory] = useState("Pizza"); // Track expanded category
+  const [expandedCategory, setExpandedCategory] = useState("Starter"); // Track expanded category
   const location = useLocation();
   // const {  } = location.state || {};
  

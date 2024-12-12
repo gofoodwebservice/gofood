@@ -10,8 +10,8 @@ router.post('/addcategory', async (req, res) => {
     
         try {
             await CategoryItems.create({
-                CategoryName: category,
-                // Sequence: sequence
+                CategoryName: category.name,
+                Sequence: category.sequence
                 
             }).then(() => {
                 res.status(200).json({ success: true })
