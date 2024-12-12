@@ -24,3 +24,20 @@
         6filter: brightness(40%);
     }
 }  
+
+.menu-items {
+    max-height: 0; /* Start with 0 height */
+    overflow: hidden;
+    transition: max-height 2s ease, opacity 2s ease; /* Smooth transition for both properties */
+    opacity: 0; /* Fully transparent initially */
+    display: grid; /* Ensure items within use a grid */
+    gap: 1rem; /* Add spacing between grid items */
+  }
+  
+  .menu-items.open {
+    max-height: 1000px; /* Sufficiently large value */
+    opacity: 1; /* Fully visible */
+  }
+  
+  
+  

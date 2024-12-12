@@ -10,6 +10,7 @@ import AboutUs from "./AboutUs";
 import { Dropdown } from "semantic-ui-react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function Home() {
   // const { id } = useParams();
@@ -24,6 +25,7 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [expandedCategory, setExpandedCategory] = useState("Pizza"); // Track expanded category
   const location = useLocation();
   // const {  } = location.state || {};
  
@@ -128,7 +130,13 @@ export default function Home() {
     console.log(random)
     setError("");
     setShow(false);
-  }
+  };
+
+  
+    const toggleCategory = (categoryName) => {
+      setExpandedCategory((prev) => (prev === categoryName ? null : categoryName));
+    };
+  
 
 
   useEffect(() => {
@@ -170,210 +178,185 @@ export default function Home() {
           </div>
         ) : (
           <div>
-            <div>
-              <div
-                id="carouselExampleFade"
-                className="carousel slide carousel-fade"
-                data-bs-ride="carousel"
-              >
-                <div className="carousel-inner" id="carousel">
-                  <div className="carousel-caption" style={{ zIndex: "9" }}>
-                    <div className="d-flex justify-content-center">
-                      <Dropdown
-                        className=" custom-dropdown text-warning dropdown-menu"
-                        placeholder={search}
-                        fluid
-                        upward
-                        search
-                        selection
-                        options={categoryOptions}
-                        onChange={(e, { value }) => setSearch(value)}
-                        style={{
-                          zIndex: "1050",
-                          position: "relative",
-                          backgroundColor: "#0F172B",
-                          color: "#E4A11B",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="carousel-item active">
-                    <img
-                      src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      className="d-block w-100"
-                      style={{ objectFit: "cover", filter: "brightness(30%)" }}
-                      alt="1"
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
-                      src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=1899&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emF8ZW58MHx8MHx8fDA%3D"
-                      className="d-block w-100"
-                      style={{ objectFit: "cover", filter: "brightness(30%)" }}
-                      alt="2"
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
-                      src="https://images.unsplash.com/photo-1575496118038-3689d62e5235?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      className="d-block w-100"
-                      style={{ objectFit: "cover", filter: "brightness(30%)" }}
-                      alt="3"
-                    />
-                  </div>
+      {/* Carousel Section */}
+      <div>
+        <div>
+          <div
+            id="carouselExampleFade"
+            className="carousel slide carousel-fade"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner" id="carousel">
+              <div className="carousel-caption" style={{ zIndex: "9" }}>
+                <div className="d-flex justify-content-center">
+                  <Dropdown
+                    className=" custom-dropdown text-warning dropdown-menu"
+                    placeholder={search}
+                    fluid
+                    upward
+                    search
+                    selection
+                    options={categoryOptions}
+                    onChange={(e, { value }) => setSearch(value)}
+                    style={{
+                      zIndex: "1050",
+                      position: "relative",
+                      backgroundColor: "#0F172B",
+                      color: "#E4A11B",
+                    }}
+                  />
                 </div>
-                <button
-                  className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carouselExampleFade"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    className="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                  className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carouselExampleFade"
-                  data-bs-slide="next"
-                >
-                  <span
-                    className="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span className="visually-hidden">Next</span>
-                </button>
+              </div>
+              <div className="carousel-item active">
+                <img
+                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="d-block w-100"
+                  style={{ objectFit: "cover", filter: "brightness(30%)" }}
+                  alt="1"
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=1899&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGl6emF8ZW58MHx8MHx8fDA%3D"
+                  className="d-block w-100"
+                  style={{ objectFit: "cover", filter: "brightness(30%)" }}
+                  alt="2"
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="https://images.unsplash.com/photo-1575496118038-3689d62e5235?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  className="d-block w-100"
+                  style={{ objectFit: "cover", filter: "brightness(30%)" }}
+                  alt="3"
+                />
               </div>
             </div>
-            <div className="container">
-              {foodCat.length > 0 ? (
-                foodCat
-                  .filter((category) => {
-                    // Show all categories if "All" is selected, or filter based on the selected category
-                    return (
-                      search === "Full Menu" || category.CategoryName === search
-                    );
-                  })
-                  .map((data) => (
-                    <div className="row mb-1" key={data._id}>
-                      <div className="fs-3 m-3 text-white">
-                        {data.CategoryName}
-                      </div>
-                      <hr
-                        id="hr-success"
-                        style={{
-                          height: "4px",
-                          backgroundImage:
-                            "-webkit-linear-gradient(left,rgb(0, 255, 137),rgb(0, 0, 0))",
-                        }}
-                      />
-                      {foodItem.length > 0 ? (
-                        foodItem
-                          .filter((items) => {
-                            if (search === "Full Menu") {
-                              return items.CategoryName === data.CategoryName;
-                            } else {
-                              return (
-                                items.CategoryName === data.CategoryName &&
-                                items.CategoryName.toLowerCase().includes(
-                                  search.toLowerCase()
-                                )
-                              );
-                            }
-                          })
-                          .map((filterItems) => (
-                            <div
-                              key={filterItems._id}
-                              className="col-12 col-md-6 col-lg-4 mb-5 mt-5 text-center"
-                            >
-                              <Card
-                                foodName={filterItems.name}
-                                item={filterItems}
-                                // options={filterItems.options[0]}
-                                ImgSrc={filterItems.img}
-                                price={filterItems.price}
-                                CategoryName={data.CategoryName}
-                                description={filterItems.description}
-                                id={filterItems._id}
-                                isStockAvailable={filterItems.isStockAvailable}
-                              />
-                            </div>
-                          ))
-                      ) : !isCategoryError ? (
-                        <div className="text-warning fw-bold text-center mt-5 m-auto justify-content-center align-items-center">
-                          {" "}
-                          Could not load the Menu. Please refresh...{" "}
-                        </div>
-                      ) : (
-                        <div className="d-flex flex-column justify-content-center align-items-center vh-50">
-                          <div className="mt-5">
-                            <Radio
-                              visible={true}
-                              height="80"
-                              width="80"
-                              ariaLabel="radio-loading"
-                              wrapperStyle={{}}
-                              wrapperClass=""
-                              color="#E4A11B"
-                            />
-                          </div>
-                          <div className="mt-3 text-center text-warning">
-                            Lost the connection with the server. Trying to
-                            reconnect. If it is taking longer than usual please
-                            consider refreshing. If the problem still persists
-                            please call our staff.
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))
-              ) : isLoading ? (
-                <div className="d-flex flex-column justify-content-center align-items-center vh-50">
-                  <div className="mt-5">
-                    <ThreeCircles
-                      visible={true}
-                      height="100"
-                      width="100"
-                      color="#E4A11B"
-                      ariaLabel="three-circles-loading"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                    />
-                  </div>
-                  <div className="mt-3 text-center text-warning fw-bold mb-3">
-                    Please hold on. Loading your menu...
-                  </div>
-                </div>
-              ) : !isError ? (
-                <div className="text-warning fw-bold text-center mt-5 m-auto justify-content-center align-items-center">
-                  {" "}
-                  Could not load the Menu. Please refresh...{" "}
-                  </div>
-              ) : (
-                <div className="d-flex flex-column justify-content-center align-items-center vh-50">
-                  <div className="mt-5">
-                    <Radio
-                      visible={true}
-                      height="80"
-                      width="80"
-                      ariaLabel="radio-loading"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                      color="#E4A11B"
-                    />
-                  </div>
-                  <div className="mt-3 text-center text-warning">
-                    Lost the connection with the server. Trying to reconnect. If
-                    it is taking longer than usual please consider refreshing.
-                    If the problem still persists please call our staff.
-                  </div>
-                </div>
-              )}
-            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
+        </div>
+      </div>
+
+      {/* Menu Section */}
+      <div className="container">
+  {foodCat.length > 0 ? (
+    foodCat.map((data) => (
+      <div className="row mb-1" key={data._id}>
+        {/* Category Header */}
+        <div
+          className="fs-3 m-3 text-white d-flex justify-content-between align-items-center"
+          onClick={() => toggleCategory(data.CategoryName)}
+          style={{ cursor: "pointer" }}
+        >
+          {data.CategoryName}
+          {expandedCategory === data.CategoryName ? (
+            <FaChevronUp className="me-4" />
+          ) : (
+            <FaChevronDown className="me-4" />
+          )}
+        </div>
+        <hr
+          id="hr-success"
+          style={{
+            height: "4px",
+            backgroundImage:
+              "-webkit-linear-gradient(left, rgb(0, 255, 137), rgb(0, 0, 0))",
+          }}
+        />
+
+        {/* Show items only if the category is expanded */}
+        <div
+  className={`menu-items ${expandedCategory === data.CategoryName ? "open" : ""}`}
+  data-category={data.CategoryName}
+>
+  <div className="row">
+    {foodItem
+      .filter((items) => items.CategoryName === data.CategoryName)
+      .map((filterItems) => (
+        <div
+          key={filterItems._id}
+          className="col-sm-12 col-md-6 col-lg-4 mb-5 mt-5 text-center"
+        >
+          <Card
+            foodName={filterItems.name}
+            item={filterItems}
+            ImgSrc={filterItems.img}
+            price={filterItems.price}
+            CategoryName={data.CategoryName}
+            description={filterItems.description}
+            id={filterItems._id}
+            isStockAvailable={filterItems.isStockAvailable}
+          />
+        </div>
+      ))}
+  </div>
+</div>
+
+      </div>
+    ))
+  ) : isLoading ? (
+    <div className="d-flex flex-column justify-content-center align-items-center vh-50">
+      <div className="mt-5">
+        <ThreeCircles
+          visible={true}
+          height="100"
+          width="100"
+          color="#E4A11B"
+          ariaLabel="three-circles-loading"
+        />
+      </div>
+      <div className="mt-3 text-center text-warning fw-bold mb-3">
+        Please hold on. Loading your menu...
+      </div>
+    </div>
+  ) : !isError ? (
+    <div className="text-warning fw-bold text-center mt-5 m-auto">
+      Could not load the Menu. Please refresh...
+    </div>
+  ) : (
+    <div className="d-flex flex-column justify-content-center align-items-center vh-50">
+      <div className="mt-5">
+        <Radio
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="radio-loading"
+          color="#E4A11B"
+        />
+      </div>
+      <div className="mt-3 text-center text-warning">
+        Lost the connection with the server. Trying to reconnect. If it is
+        taking longer than usual, please refresh. If the problem persists, call
+        our staff.
+      </div>
+    </div>
+  )}
+</div>
+
+    </div>
         )}
       </div>
       <Footer />
