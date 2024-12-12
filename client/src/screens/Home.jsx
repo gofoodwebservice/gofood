@@ -25,7 +25,7 @@ export default function Home() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [expandedCategories, setExpandedCategories] = useState([]); // Track expanded category
+  const [expandedCategories, setExpandedCategories] = useState(["Starter"]); // Track expanded category
   const location = useLocation();
   const categoryRefs = useRef({}); // To store refs for each category
 
