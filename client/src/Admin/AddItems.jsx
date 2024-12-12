@@ -10,6 +10,7 @@ import AdminLogin from './AdminLogin'
 const AddProductForm = () => {
   const [categories, setCategories] = useState([]); // Fixed state type to array
   const [categoryTag, setCategoryTag] = useState("");
+  const [seqTag, setSeqTag] = useState("");
   const [adminLogin, setAdminLogin] = useState(false);
   const [product, setProduct] = useState({
     name: "",
@@ -108,7 +109,7 @@ const AddProductForm = () => {
       const response = await fetch("https://gofood-server-zeta.vercel.app/api/addcategory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category }),
+        body: JSON.stringify({ category, sequence: seqTag }),
       });
        // Assume the response is an array of category objects
     } catch (error) {
@@ -343,6 +344,7 @@ const AddProductForm = () => {
           <AddCategory
             onCategorySubmit={handleAddCategorySubmit}
             initialCategory={categoryTag}
+            initialSequence={seqTag}
           />
         </CategoryModal>
       )}

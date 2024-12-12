@@ -4,13 +4,14 @@ const CategoryItems = require( '../../model/Category');
 
 router.post('/addcategory', async (req, res) => {
 
-    const { category } = req.body;
+    const { category, sequence } = req.body;
     console.log(category)
    
     
         try {
             await CategoryItems.create({
                 CategoryName: category,
+                Sequence: sequence
                 
             }).then(() => {
                 res.status(200).json({ success: true })

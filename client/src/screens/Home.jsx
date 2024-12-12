@@ -81,6 +81,8 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
       });
       const data = await response.json();
+      data.sort((a, b) => a.Sequence - b.Sequence);
+
       if (response.status === 200) {
         setIsLoading(false);
       } else if (response.status === 400 || response.status === 404) {
