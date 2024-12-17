@@ -8,9 +8,10 @@ const AdminOrder = require("../model/AdminOrder");
 require('dotenv').config(); // Import and configure dotenv
 
 router.post("/orderData", async (req, res) => {
-  const { order_data, order_time, email, name, order_date, table } = req.body;
+  const { order_data, order_time, email, name, order_date, table, instructions } = req.body;
 
   console.log(order_data[0].currentTime);
+  
   console.log(order_data);
   order_data.splice(0, 0, { Order_time: order_data[0].currentTime, Order_date: order_date });
 
@@ -34,13 +35,15 @@ router.post("/orderData", async (req, res) => {
       await Orders.findOneAndUpdate(
         { email },
         {
-          $set: { askedForBill: false },
+          $set: { askedForBill: false,
+           },
           $push: { order_data: order_data }
         }
       )
     }
 
     order_data.forEach((order) => {
+      order.instructions = instructions;
       order.isNoted = false;
       order.isDelivered = false;
       order.isRequested = false;

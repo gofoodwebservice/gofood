@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
   let data = useCart();
   let dispatch = useDispatchCart();
-  const [coupon, setCoupon] = useState({ name: "" });
+  const [description, setDescription] = useState({ name: "" });
   const [discount, setDiscount] = useState(0);
   const [show, setShow] = useState(false);
   const [viewMore, setViewMore] = useState(false);
@@ -57,6 +57,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
         order_data: data,
         email: userMail,
         name: userName,
+        instructions: description.name,
         order_time: getCurrentTime(),
         table: localStorage.getItem("table"),
         // order_date: exactDate
@@ -113,30 +114,30 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
     );
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const headers = {
-      "Content-Type": "application/json",
-    };
-    const data = {
-      Coupon: coupon.name,
-    };
-    axios
-      .post("https://gofood-server-zeta.vercel.app/api/discount", data)
-      .then((res) => {
-        const dist = res.data.dis;
-        setShow(false);
-        setDiscount(parseInt(dist));
-      })
-      .catch(function (error) {
-        setShow(true);
-        console.log(error);
-      });
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //   };
+  //   const data = {
+  //     Coupon: coupon.name,
+  //   };
+  //   axios
+  //     .post("https://gofood-server-zeta.vercel.app/api/discount", data)
+  //     .then((res) => {
+  //       const dist = res.data.dis;
+  //       setShow(false);
+  //       setDiscount(parseInt(dist));
+  //     })
+  //     .catch(function (error) {
+  //       setShow(true);
+  //       console.log(error);
+  //     });
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCoupon((prevState) => ({
+    setDescription((prevState) => ({
       ...prevState,
       [name]: value,
     }));
@@ -242,6 +243,23 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
         <div>
           <h1 className="fs-2 text-white">Total Price: {totalPrice}/-</h1>
         </div>
+      <div>
+        <form className="w-90 m-auto mt-2 mb-3" method="POST" style={{backgroundColor: "#0F172B"}}>
+          <div className="m-3">
+            <label htmlFor="exampleInputEmail1" className="form-label text-white text-center">
+              Add general instructions for all your orders:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              value={description.name}
+              onChange={handleChange}
+            />
+          </div>
+          
+        </form>
+      </div>
         <div>
           <button
             className="btn mt-4 mb-4"
@@ -252,6 +270,7 @@ export default function Cart({ onClose, orderConfirmation, orderErrorFn }) {
           </button>
         </div>
       </div>
+
 
       {/* <form
         className="w-50 m-auto mt-2 border bg-dark border-success rounded mb-3"

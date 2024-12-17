@@ -373,11 +373,12 @@ function AdminOrderTable() {
             <tr>
               <th>Email</th>
               <th>Order Time</th>
+              <th>General Instructions</th>
               <th>Food Name</th>
               <th>Food Option (Size)</th>
               <th>Quantity</th>
               <th>Price</th>
-              <th>Description</th>
+              <th>Dish Instructions</th>
               <th>Noted Status</th>
               <th>Delivery Status</th>
               <th>Cancellation Request</th>
@@ -439,8 +440,11 @@ function AdminOrderTable() {
                                   </button>
                                 </div>
                               </td>
+
                             )}
+
                             <td>{firstItem.Order_time}</td> {/* Order date */}
+                            <td></td>
                             <td>{firstItem.name}</td>
                             <td>{firstItem.size}</td>
                             <td>{firstItem.qty}</td>
@@ -468,6 +472,7 @@ function AdminOrderTable() {
                               }}
                             >
                               <td></td>
+                              <td>{item.instructions}</td>
                               <td>{item.name}</td>
                               <td>{item.size}</td>
                               <td>{item.qty}</td>
@@ -582,7 +587,7 @@ function AdminOrderTable() {
                     {/* Row for total price */}
                     <tr style={{ background: "#F5F5F5" }} className="text-dark">
                       <td
-                        colSpan="5"
+                        colSpan="6"
                         style={{ fontWeight: "bold", textAlign: "right" }}
                       >
                         Total Price:
