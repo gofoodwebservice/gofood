@@ -47,6 +47,7 @@ function OrderTable() {
   const [billError, setBillError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorLoading, setErrorLoading] = useState(false);
+  const [snackbarStatus, setSnackbarStatus] = useState(1);
   const invoiceRef = useRef();
   // const [receiptDownload, setRecieptDownload] = useState(false);
 
@@ -162,10 +163,12 @@ function OrderTable() {
     setOpen(false);
   };
 
-  const handleOpenSnackbar = (bool) => {
+  const handleOpenSnackbar = (delivered, requested, rejected) => {
     setOpen(true);
     {
-      bool ? setDelivered(true) : setDelivered(false);
+      if (delivered) setSnackbarStatus(1);
+      else if (requested) setSnackbarStatus(2);
+      else setSnackbarStatus(3);
     }
   };
 
@@ -439,7 +442,10 @@ function OrderTable() {
       </div>
       <div className="content" style={{ flex: "1" }}>
         <div className="container-fluid table-responsive table table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xs table-sm">
-          <h2 className="mb-3 order-table text-warning" style={{ textAlign: "center" }}>
+          <h2
+            className="mb-3 order-table text-warning"
+            style={{ textAlign: "center" }}
+          >
             Order Table
           </h2>
 
@@ -595,6 +601,7 @@ function OrderTable() {
                                 <td>
                                   {!item.isDelivered &&
                                   !item.isRequested &&
+                                  !item.isRejected &&
                                   !item.isDeleted ? (
                                     <button
                                       className="btn bg-danger text-white"
@@ -612,7 +619,11 @@ function OrderTable() {
                                         opacity: 0.5,
                                       }}
                                       onClick={() =>
-                                        handleOpenSnackbar(item.isDelivered)
+                                        handleOpenSnackbar(
+                                          item.isDelivered,
+                                          item.isRequested,
+                                          item.isRejected
+                                        )
                                       }
                                     >
                                       <DeleteRoundedIcon />
@@ -749,9 +760,7 @@ function OrderTable() {
               state={{ menuFlag: true }}
             >
               {" "}
-              {orderData.length === 0 ?
-              "Order Now" : "Order More"
-            }
+              {orderData.length === 0 ? "Order Now" : "Order More"}
             </Link>
             {orderData.length > 0 && (
               <Button
@@ -851,10 +860,12 @@ function OrderTable() {
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
         >
           <Alert onClose={handleCloseSnackBar} severity="error">
-            {delivered ? (
+            {snackbarStatus === 1 ? (
               <p>Cannot process the request. Item is already Delivered.</p>
-            ) : (
+            ) : snackbarStatus === 2 ? (
               <p>Request already sent. Please wait...</p>
+            ) : (
+              <p>Item almost prepared. Cannot be cancelled now.</p>
             )}
           </Alert>
         </Snackbar>

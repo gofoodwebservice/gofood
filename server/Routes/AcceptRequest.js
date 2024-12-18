@@ -17,6 +17,9 @@ router.post('/request', async (req, res) => {
             eId.order_data[outerIndex][innerIndex + 1].isDeleted = true;
             // eId.order_data[outerIndex][innerIndex].isDeleted = true;
         }
+        else{
+            eId.order_data[outerIndex][innerIndex + 1].isRejected = true;
+        }
 
         eId.order_data[outerIndex][innerIndex + 1].isRequested = false;
         // eId.order_data[outerIndex][innerIndex].isRequested = false;
