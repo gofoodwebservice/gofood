@@ -19,8 +19,9 @@ const HeroHeader = ({menuFlag, setMenuFlag}) => {
               Delicious Meal
             </h1>
             <p className="text-white animated slideInLeft mb-4 pb-2">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
-            </p>
+            Indulge in the finest flavors and savor every bite! We bring you a delightful dining experience with dishes crafted to perfection. Whether you’re here for a quick snack or a hearty feast, our menu is designed to satisfy every craving.
+
+Come, sit back, and relish a memorable meal with us!            </p>
             <button className="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft bg-warning" onClick={handleGoToMenu}>
               Go to menu
             </button>

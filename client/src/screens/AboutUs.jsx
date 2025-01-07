@@ -43,11 +43,10 @@ const AboutUsSection = ({menuFlag, setMenuFlag}) => {
                 </span>
             </h1>
             <p className="mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.
+            At GoFood, we believe that great food brings people together. Our mission is to deliver exceptional dining experiences by offering a diverse menu crafted with fresh, high-quality ingredients.
             </p>
             <p className="mb-4">
-              Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet.
-            </p>
+            We are exclusively dedicated to creating a warm and welcoming atmosphere for our dine-in guests. Whether it’s a casual outing or a special occasion, our restaurant is the perfect place to enjoy delicious meals and create lasting memories.            </p>
             <div className="row g-4 mb-4 fw-bold">
               <div className="col-sm-6">
                 <div className="d-flex align-items-center border-start border-warning px-3 borderWidth">
