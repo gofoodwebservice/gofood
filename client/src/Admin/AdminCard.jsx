@@ -104,7 +104,7 @@ export default function Card(props) {
       {/* Food Card */}
       <div
         className="card mt-3 sm-3 resp grow-on-hover-card"
-        style={{ width: "20rem", maxHeight: "375px" }}
+        style={{ width: "20rem", maxHeight: "375px", backgroundColor: "#0F172B" }}
       >
         <img
           src={props.ImgSrc}

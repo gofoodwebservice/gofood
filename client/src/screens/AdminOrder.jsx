@@ -329,7 +329,7 @@ function AdminOrderTable() {
       <div className="content" style={{ flex: "1" }}>
         
       <div className="container-fluid m-auto  table-responsive table table-responsive-sm table-responsive-md table-responsive-lg">
-        <h2 className="mb-3 mt-3" style={{ textAlign: "center" }}>
+        <h2 className="mb-3 mt-3" style={{ textAlign: "center", color: "#E4A11B" }}>
           Order Table
         </h2>
 
@@ -403,9 +403,11 @@ function AdminOrderTable() {
                                 )}
                               >
                                 <div>
-                                  <h6>Table No: {order.table ? order.table : ""}</h6> 
+                                  <h6 style={{color: "#E4A11B"}}>Table No: {order.table ? order.table : ""}</h6> 
                                   <br/>
-                                  {order.email.startsWith("Guest") ? "Guest" : order.email}
+                                  <h6 style={{color: "#E4A11B"}}>
+                                    {order.email.startsWith("Guest") ? "Guest" : order.email}
+                                    </h6>
                                   {/* {order.askedForBill} */}
                                   <br />
                                   <DeleteRoundedIcon
@@ -443,7 +445,7 @@ function AdminOrderTable() {
 
                             )}
 
-                            <td>{firstItem.Order_time}</td> {/* Order date */}
+                            <td style={{color: "#E4A11B"}}>{firstItem.Order_time}</td> {/* Order date */}
                             <td></td>
                             <td>{firstItem.name}</td>
                             <td>{firstItem.size}</td>
